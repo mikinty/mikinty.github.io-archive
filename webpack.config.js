@@ -129,11 +129,11 @@ const developmentConfig = merge([
 module.exports = (env) => {
   const pages = [
     parts.page({
-      title: 'Main',
       entry: {
         main: PATHS.src,
       },
       chunks: ['main', 'manifest', 'vendor'],
+      template: 'src/index.html',
     }),
     parts.page({
       title: 'another',
