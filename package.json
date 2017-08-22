@@ -11,6 +11,7 @@
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
     "build": "webpack --env production",
     "lint": "eslint src/ webpack.*.js --cache",
+    "lint:fix": "eslint src/ webpack.*.js --cache --fix",
     "stats": "webpack --env production --profile --json > stats.json",
     "test:mocha": "mocha tests",
     "test:mocha:watch": "webpack-dev-server --hot --config webpack.mocha.js",

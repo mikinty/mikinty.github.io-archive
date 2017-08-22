@@ -33,7 +33,7 @@ const commonConfig = merge([
       name: '[name].[hash:8].[ext]',
     },
   }),
-  parts.loadJavaScript({ include: PATHS.app }),  
+  parts.loadJavaScript({ include: PATHS.app }),
 ]);
 
 const productionConfig = merge([
@@ -120,7 +120,7 @@ const developmentConfig = merge([
     port: process.env.PORT,
   }),
   parts.loadCSS(),
-  parts.loadImages(),  
+  parts.loadImages(),
 ]);
 
 module.exports = (env) => {
