@@ -24,6 +24,11 @@ exports.devServer = ({ host, port } = {}) => ({
 
     // if you want refresh on errors too, set
     // hot: true
+
+    contentBase: [
+      'src/index.html',
+    ],
+    watchContentBase: true,
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
