@@ -86,7 +86,6 @@ const productionConfig = merge([
       safe: true,
     },
   }),
-  parts.generateSourceMaps({ type: 'source-map' }),  
   parts.extractCSS({
     use: ['css-loader', parts.autoprefix(), 'sass-loader'],
   }),
