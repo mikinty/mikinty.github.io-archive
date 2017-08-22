@@ -1,11 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
-
 const glob = require('glob');
 
 // webpack parts file
 const parts = require('./webpack.parts');
+
+// copy files during build
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // commonly used path variables
 const PATHS = {
@@ -53,6 +55,12 @@ const productionConfig = merge([
     },
     plugins: [
       new webpack.HashedModuleIdsPlugin(),
+      new CopyWebpackPlugin([
+        {
+          from: path.join('util', '.nojekyll'),
+          to: PATHS.build,
+        },
+      ]),
     ],
     recordsPath: path.join(__dirname, 'records.json'),
   },
