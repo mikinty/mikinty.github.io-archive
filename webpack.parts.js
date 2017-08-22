@@ -41,7 +41,7 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
         exclude,
 
         use: [
-          'style-loader', 
+          'style-loader',
           {
             loader: 'css-loader',
             options: {

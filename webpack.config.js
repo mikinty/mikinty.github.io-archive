@@ -38,9 +38,6 @@ const commonConfig = merge([
 
 const productionConfig = merge([
   {
-    entry: {
-      vendor: ['react'],
-    },
     // warn user when the build size is too big
     performance: {
       hints: 'warning', // 'error' or false are valid too
@@ -130,18 +127,10 @@ module.exports = (env) => {
   const pages = [
     parts.page({
       entry: {
-        main: PATHS.src,
+        main: path.join(PATHS.src, 'js'),
       },
       chunks: ['main', 'manifest', 'vendor'],
       template: 'src/index.html',
-    }),
-    parts.page({
-      title: 'another',
-      path: 'another',
-      entry: {
-        another: path.join(PATHS.src, 'another.js'),
-      },
-      chunks: ['another', 'manifest', 'vendor'],
     }),
   ];
 
