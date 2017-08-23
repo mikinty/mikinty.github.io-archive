@@ -1,4 +1,41 @@
 // avoid confusion with the other about class in the navbar
 .slide.about {
+  display: flex;
+  flex-direction: column;
   background: $color-sky;
+
+  .category {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    margin: 0 auto 0 auto;
+
+    .label {
+      display: flex;
+      flex: 1 0 auto;
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .content {
+      display: flex;
+      flex: 4 0 auto;
+      flex-direction: column;
+
+      .item {
+        display: flex;
+        flex-direction: row;
+
+        .description {
+          flex: 4 0 auto;
+        }
+
+        .progress {
+          flex: 1 0 auto;
+        }
+      }
+    }
+  }
 }
