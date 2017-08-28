@@ -6,13 +6,13 @@
 
   .category {
     display: flex;
-    width: 80%;
+    width: 800px;
     flex-direction: row;
     margin: 0 auto 0 auto;
 
     .label {
       display: flex;
-      flex: 1 0 auto;
+      width: 140px;
 
       span {
         font-weight: bold;
@@ -21,7 +21,6 @@
 
     .content {
       display: flex;
-      flex: 4 0 auto;
       flex-direction: column;
 
       .item {
@@ -29,11 +28,11 @@
         flex-direction: row;
 
         .description {
-          flex: 4 0 auto;
+          width: 400px;
         }
 
         .progress {
-          flex: 1 0 auto;
+          width: 150px;
         }
       }
     }

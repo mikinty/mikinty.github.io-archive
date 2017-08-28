@@ -96,7 +96,7 @@ const productionConfig = merge([
   }),
   // needs to run AFTER extract text plugin
   parts.purifyCSS({
-    paths: glob.sync(`${PATHS.src}/**/*.js`, { nodir: true }),
+    paths: glob.sync(`${PATHS.src}/**/*.@(js|html)`, { nodir: true }),
   }),
   // load images
   parts.loadImages({
