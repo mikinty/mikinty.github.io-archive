@@ -1,5 +1,5 @@
 .slide.cover {
-  background: $color-sky;
+  background: $backgroundColor;
   display: flex;
 
   .text {
@@ -20,7 +20,7 @@
         width: $dotDiameter;
         height: $dotDiameter;
         border-radius: 50%;
-        background: white;
+        background: black;
 
       }
     }

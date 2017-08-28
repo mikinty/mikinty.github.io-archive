@@ -1,7 +1,7 @@
 .slide.profile {
   display: flex;
   justify-content: center;
-  background: $color-sky;
+  background: $backgroundColor;
   height: 400px;
 
 
@@ -35,7 +35,7 @@
       }
   
       .border {
-        background: linear-gradient(#B1DBED, #1D7CB6);
+        background: radial-gradient(circle, white, $backgroundColor 50%);
         height: 300px;
         width: 300px;
         border-radius: 50%;
