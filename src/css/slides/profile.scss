@@ -4,24 +4,7 @@
   background: $backgroundColor;
   height: 500px;
 
-  .content {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .top {
-      .title {
-        border-bottom: 4px solid black;
-        margin-bottom: 20px;
-
-        span {
-          font-size: 48px;
-        }
-      }
-    }
-    
+  .content {    
     .bottom {
       display: flex;
       flex-direction: row;
