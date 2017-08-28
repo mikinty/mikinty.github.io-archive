@@ -1,10 +1,11 @@
 .slide.skills {
-  background: $backgroundColor;
-  display: flex;
-  justify-content: center;
-
-  .content {  
+  .content {
+    .title {
+      margin-bottom: 10px;
+    }
     .chart {
+      margin-bottom: 20px;
+
       .label-chart {
         margin-left: 60px;
 
@@ -15,8 +16,6 @@
     }
 
     .chart-skills-web {
-      margin-bottom: 20px;
-
       .bar {
         fill: #148FE8;
       }
