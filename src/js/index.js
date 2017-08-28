@@ -74,67 +74,75 @@ const skillsDataGen = [
   },
 ];
 
+function createGraphs(divName, data, margin, widthBase, heightBase) {
+  const width = widthBase - margin.left - margin.right,
+    height = heightBase - margin.top - margin.bottom;
+
+  var svg = d3.select(`.${divName}`).append('svg')
+    .attr('width', width + margin.left + margin.right)
+    .attr('height', height + margin.top + margin.bottom)
+    .append('g')
+    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+  var x = d3.scaleLinear()
+    .range([0, width])
+    .domain([0, d3.max(data, (d) => {
+      return d.value;
+    })]);
+
+  var y = d3.scaleBand()
+    .rangeRound([height, 0])
+    .padding(0.3)
+    .domain(data.map(function (d) {
+      return d.name;
+    }));
+
+  //make y axis to show bar names
+  var yAxis = d3.axisLeft()
+    .scale(y)
+    //no tick marks
+    .tickSize(0);
+
+  // add the names
+  svg.append('g')
+    .attr('class', 'y axis')
+    .call(yAxis);
+
+  var bars = svg.selectAll('.bar')
+    .data(data)
+    .enter()
+    .append('g');
+
+  //append rects
+  bars.append('rect')
+    .attr('class', 'bar')
+    .attr('y', function (d) {
+      return y(d.name);
+    })
+    .attr('height', y.bandwidth())
+    .attr('x', 0)
+    .attr('width', (d) => {
+      return x(d.value);
+    });
+}
+
 // sort bars based on value
 const dataWeb = skillsDataWeb.sort((a, b) => {
   return d3.ascending(a.value, b.value);
 });
 
+const dataGen = skillsDataGen.sort((a, b) => {
+  return d3.ascending(a.value, b.value);
+});
+
 const margin = {
-  top: 15,
+  top: 5,
   right: 25,
-  bottom: 15,
-  left: 60,
+  bottom: 5,
+  left: 60, // for labels
 };
 
-const width = 800 - margin.left - margin.right,
-  height = 400 - margin.top - margin.bottom;
+createGraphs('chart-skills-web', dataWeb, margin, 700, 300);
+createGraphs('chart-skills-gen', dataGen, margin, 700, 300);
 
-var svg = d3.select('.chart-skills-web').append('svg')
-  .attr('width', width + margin.left + margin.right)
-  .attr('height', height + margin.top + margin.bottom)
-  .append('g')
-  .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-var x = d3.scaleLinear()
-  .range([0, width])
-  .domain([0, d3.max(dataWeb, (d) => {
-    return d.value;
-  })]);
-
-var y = d3.scaleBand()
-  .rangeRound([height, 0])
-  .padding(0.3)
-  .domain(dataWeb.map(function (d) {
-    return d.name;
-  }));
-
-console.log(y);
-console.log(y.bandwidth());
-
-//make y axis to show bar names
-var yAxis = d3.axisLeft()
-  .scale(y)
-  //no tick marks
-  .tickSize(0);
-
-// add the names
-var gy = svg.append('g')
-  .attr('class', 'y axis')
-  .call(yAxis);
-
-var bars = svg.selectAll('.bar')
-  .data(dataWeb)
-  .enter()
-  .append('g');
-
-//append rects
-bars.append('rect')
-  .attr('class', 'bar')
-  .attr('y', function (d) {
-    return y(d.name);
-  })
-  .attr('height', y.bandwidth())
-  .attr('x', 0)
-  .attr('width', (d) => {
-    return x(d.value);
-  });

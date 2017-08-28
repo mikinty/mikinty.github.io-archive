@@ -2,20 +2,18 @@
   display: flex;
   justify-content: center;
   background: $backgroundColor;
-  height: 400px;
-
+  height: 500px;
 
   .content {
     width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     .top {
       .title {
-        border-bottom: 4px solid white;
+        border-bottom: 4px solid black;
         margin-bottom: 20px;
 
         span {
