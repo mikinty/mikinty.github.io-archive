@@ -86,8 +86,8 @@ const margin = {
   left: 60,
 };
 
-const width = 960 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
+const width = 800 - margin.left - margin.right,
+  height = 400 - margin.top - margin.bottom;
 
 var svg = d3.select('.chart-skills-web').append('svg')
   .attr('width', width + margin.left + margin.right)
@@ -102,16 +102,25 @@ var x = d3.scaleLinear()
   })]);
 
 var y = d3.scaleBand()
-  .rangeRound([height, 0], .1)
+  .rangeRound([height, 0])
+  .padding(0.3)
   .domain(dataWeb.map(function (d) {
     return d.name;
   }));
+
+console.log(y);
+console.log(y.bandwidth());
 
 //make y axis to show bar names
 var yAxis = d3.axisLeft()
   .scale(y)
   //no tick marks
   .tickSize(0);
+
+// add the names
+var gy = svg.append('g')
+  .attr('class', 'y axis')
+  .call(yAxis);
 
 var bars = svg.selectAll('.bar')
   .data(dataWeb)
