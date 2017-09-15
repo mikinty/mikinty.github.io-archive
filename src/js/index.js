@@ -1,6 +1,6 @@
 // import styling
 import './../css/main.scss';
-
+import './listeners';
 import * as d3 from 'd3';
 
 // scale from 0 to 100
