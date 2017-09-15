@@ -1,7 +1,9 @@
 .slide.profile {
-  height: 500px;
+  height: 100vh;
 
-  .content {    
+  .content {
+    margin-top: 80px;
+
     .bottom {
       display: flex;
       flex-direction: row;
