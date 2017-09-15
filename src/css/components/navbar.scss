@@ -11,17 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .about {
     flex: 1 0 auto;
-  }
-
-  .skills {
-    flex: 1 0 auto;
-  }
-
-  .contact {
-    flex: 1 0 auto;
+    cursor: pointer;
   }
 }
