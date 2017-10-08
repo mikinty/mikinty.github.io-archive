@@ -1,4 +1,5 @@
 // deal with animations and CSS for scroll position
+import * as domVars from './vars/domVars';
 const doc = $(document);
 
 var didScroll = false;
@@ -10,10 +11,10 @@ doc.bind('mousewheel', (e) => {
   // history-navbar show and unshow
   if (deltaY > 100) {
     // scroll up, make navbar bigger
-    console.log('scroll up');
+    domVars.navbar.removeClass('hidden');
   } else if (deltaY < -100) {
     // scroll down, make navbar smaller
-    console.log('scroll down');
+    domVars.navbar.addClass('hidden');
   }
 
   // notify the scroll position 
