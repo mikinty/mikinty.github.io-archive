@@ -3,11 +3,16 @@
 .navbar {
   position: fixed;
   display: flex;
-  height: 40px;
+  height: $navBarHeight;
   width: 100%;
   background: $backgroundColor;
   box-shadow: 0 1px 5px 1px #727272;
   z-index: $zNavBar;
+  transition-duration: 0.5s;
+
+  &.hidden {
+    transform: translateY(-$navBarHeight);
+  }
 
   .section {
     position: relative;
