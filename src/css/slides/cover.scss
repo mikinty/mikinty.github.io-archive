@@ -2,7 +2,7 @@
 
 .slide.cover {
   height: 100%;
-
+  max-width: 900px;
   .text {
     height: 300px;
     display: flex;
@@ -20,9 +20,10 @@
       .dot {
         width: $dotDiameter;
         height: $dotDiameter;
+        margin: 0 10px 0 10px;
         border-radius: 50%;
         background: black;
-
+        flex-shrink: 0;
       }
     }
 
@@ -34,14 +35,15 @@
 
   span {
     &.title {
-      font-size: 140px;
+      font-size: 17vw;
+      
     }
 
     &.title-caption {
-      font-size: 60px;
+      font-size: 8vw;
 
       &.minor {
-        font-size: 48px;
+        font-size: 6vw;
       }
     }
   }
