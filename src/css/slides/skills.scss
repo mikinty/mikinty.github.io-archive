@@ -3,31 +3,52 @@
     .title {
       margin-bottom: 10px;
     }
-    .chart {
-      margin-bottom: 20px;
+    
+    .pie {
+      width: 80px;
+      height: 80px;
 
-      .label-chart {
-        margin-left: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-        span {
-          font-size: 18px;
-        }
+      background-color: black;
+      border-radius: 50%;
+
+      .pieLeft {
+        width: 40px;
+        height: 80px;
+
+        background-color: red;
+        position: absolute;
+        border-radius: 80px 0 0 80px;
+
+        transform: rotate(-10deg) translate(-20px);
       }
 
-      .bar {
-        cursor: pointer;
-        transition-duration: 0.4s;
+      .pieRight {
+        width: 40px;
+        height: 80px;
 
-        &:hover {
-          fill-opacity: 0.75;
-        }
+        background-color: red;
+        border-radius: 0  80px 80px 0;
+
+        transform: translate(20px);
+      }
+
+      .pieOverlay {
+        width: 70px;
+        height: 70px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+
+        background-color: rgb(92, 168, 255);
+        border-radius: 50%;
       }
     }
-
-    .chart-skills-web {
-      .bar {
-        fill: #148FE8;        
-      }
-    }  
   }
 }
