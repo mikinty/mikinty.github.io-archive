@@ -1,13 +1,11 @@
 .slide.contact {
-  height: 200px;
-
   .title {
     margin-top: 20px;
     margin-bottom: 30px;
   }
 
   .links {
-    width: 300px;
+    width: $contactBarWidth;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
