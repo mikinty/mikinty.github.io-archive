@@ -10,28 +10,35 @@
       justify-content: space-between;
       height: $pieSize * 4 + 80px;
 
+      .web, .general {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: $pieSize * 2 + 20px;
+      }
+
+      .web .pie .pieLeft {
+        background-color: $pieProgColorWeb;
+      }
+
+      .web .pie .pieRight {
+        background-color: $pieProgColorWeb;
+      }
+
+      .general .pie .pieLeft {
+        background-color: $pieProgColorGen;
+      }
+
+      .general .pie .pieRight {
+        background-color: $pieProgColorGen;
+      }
+
       .pieRow {
         width: $pieRowWidth;
   
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-
-        &.web .pie .pieLeft {
-          background-color: $pieProgColorWeb;
-        }
-
-        &.web .pie .pieRight {
-          background-color: $pieProgColorWeb;
-        }
-
-        &.general .pie .pieLeft {
-          background-color: $pieProgColorGen;
-        }
-
-        &.general .pie .pieRight {
-          background-color: $pieProgColorGen;
-        }
       }
     }
     
