@@ -22,7 +22,9 @@
         height: $dotDiameter;
         border-radius: 50%;
         background: black;
-
+        position: relative;
+        flex-shrink: 0;
+        margin: 0 10px 0 10px;
       }
     }
 
@@ -34,7 +36,7 @@
 
   span {
     &.title {
-      font-size: 140px;
+      font-size: 130px;
     }
 
     &.title-caption {
