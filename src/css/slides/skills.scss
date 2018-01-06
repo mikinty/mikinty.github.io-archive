@@ -1,12 +1,43 @@
 .slide.skills {
   .content {
     .title {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .pieTable {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: $pieSize * 4 + 80px;
+
+      .pieRow {
+        width: $pieRowWidth;
+  
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &.web .pie .pieLeft {
+          background-color: $pieProgColorWeb;
+        }
+
+        &.web .pie .pieRight {
+          background-color: $pieProgColorWeb;
+        }
+
+        &.general .pie .pieLeft {
+          background-color: $pieProgColorGen;
+        }
+
+        &.general .pie .pieRight {
+          background-color: $pieProgColorGen;
+        }
+      }
     }
     
     .pie {
-      width: 80px;
-      height: 80px;
+      width: $pieSize;
+      height: $pieSize;
 
       display: flex;
       justify-content: center;
@@ -15,30 +46,45 @@
       background-color: black;
       border-radius: 50%;
 
+      cursor: pointer;
+
+      &:hover {
+
+        .pieLeft, .pieRight {
+          opacity: .7;
+          transition: opacity $pieColorSpeed;
+        }
+      }
+
       .pieLeft {
-        width: 40px;
-        height: 80px;
+        width: $pieSize/2;
+        height: $pieSize;
 
-        background-color: red;
+        background-color: $pieProgColorWeb;
         position: absolute;
-        border-radius: 80px 0 0 80px;
+        border-radius: $pieSize 0 0 $pieSize;
 
-        transform: rotate(-10deg) translate(-20px);
+        // here is where you do custom tuning to the skill amount
+        // transform: rotate(-10deg) translate(-$pieSize/4);
+
+        transition: opacity $pieColorSpeed;
       }
 
       .pieRight {
-        width: 40px;
-        height: 80px;
+        width: $pieSize/2;
+        height: $pieSize;
 
-        background-color: red;
-        border-radius: 0  80px 80px 0;
+        background-color: $pieProgColorWeb;
+        border-radius: 0  $pieSize $pieSize 0;
 
-        transform: translate(20px);
+        transform: translate($pieSize/4);
+
+        transition: opacity $pieColorSpeed;
       }
 
       .pieOverlay {
-        width: 70px;
-        height: 70px;
+        width: $pieOverlaySize;
+        height: $pieOverlaySize;
 
         display: flex;
         justify-content: center;
@@ -46,9 +92,114 @@
 
         position: absolute;
 
-        background-color: rgb(92, 168, 255);
+        background-color: black;
         border-radius: 50%;
+
+        span {
+          color: white;
+          text-align: center;
+        }
       }
+    }
+
+    // headers
+    .header {
+      .pieLeft, .pieRight {
+        display: none;
+      }
+
+      &#web {
+        background-color: $pieProgColorWeb;
+
+        .pieOverlay {
+          background-color: $pieProgColorWeb;
+        }
+      }
+
+      &#general {
+        background-color: $pieProgColorGen;
+
+        .pieOverlay {
+          background-color: $pieProgColorGen;
+        }
+      }
+    }
+
+    // web skills
+    #angular .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-50deg) translate(-$pieSize/4);
+    }
+
+    #chrome .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-40deg) translate(-$pieSize/4);
+    }
+
+    #d3 .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-50deg) translate(-$pieSize/4);
+    }
+
+    #flask .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-80deg) translate(-$pieSize/4);
+    }
+
+    #jquery .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: translate(-$pieSize/4);
+    }
+
+    #node .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-25deg) translate(-$pieSize/4);
+    }
+
+    #sass .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-10deg) translate(-$pieSize/4);
+    }
+
+    #webpack .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-25deg) translate(-$pieSize/4);
+    }
+
+    // general skills
+    #assembly .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-100deg) translate(-$pieSize/4);
+    }
+
+    #c .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-10deg) translate(-$pieSize/4);
+    }
+    
+    #java .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-10deg) translate(-$pieSize/4);
+    }
+
+    #latex .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: translate(-$pieSize/4);
+    }
+
+    #matlab .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-30deg) translate(-$pieSize/4);
+    }
+
+    #python .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: translate(-$pieSize/4);
+    }
+
+    #sml .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-30deg) translate(-$pieSize/4);
     }
   }
 }
