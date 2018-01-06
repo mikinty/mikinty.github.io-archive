@@ -10,7 +10,16 @@ $arrowThickness: 4px;
 // navbar
 $navBarHeight: 40px;
 
+// skills
+$pieRowWidth: 500px;
+$pieSize: 90px;
+$pieOverlaySize: $pieSize - 12px;
+$pieProgColorWeb: rgb(148, 61, 219);
+$pieProgColorGen: rgb(0,108,183);
+$pieColorSpeed: 0.5s;
+
 // contact
+$contactBarWidth: 350px;
 $iconSize: 70px;
 
 // z-indices
