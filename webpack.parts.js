@@ -62,7 +62,7 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
 });
 
 // separating CSS from JS for faster loading
-exports.extractCSS = ({ include, exclude, use }) => {
+exports.extractCSS = ({ include, exclude, use = [] }) => {
   // Output extracted CSS to a file
   const plugin = new MiniCssExtractPlugin({
     filename: '[name].[contenthash:8].css',
@@ -90,9 +90,7 @@ exports.extractCSS = ({ include, exclude, use }) => {
 exports.autoprefix = () => ({
   loader: 'postcss-loader',
   options: {
-    plugins: () => ([
-      require('autoprefixer')(),
-    ]),
+    plugins: () => [require('autoprefixer')()],
   },
 });
 
