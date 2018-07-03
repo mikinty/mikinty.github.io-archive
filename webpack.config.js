@@ -58,7 +58,7 @@ const productionConfig = merge([
         },
       ]),
     ],
-    recordsPath: path.join(__dirname, 'records.json'),
+    recordsPath: path.join(__dirname, 'records.json')
   },
   // for bundle splitting, automatically searches through node_modules
   parts.extractBundles(),
@@ -109,7 +109,7 @@ const developmentConfig = merge([
   parts.loadImages(),
 ]);
 
-module.exports = (env) => {
+module.exports = (env, argv) => {
   const pages = [
     parts.page({
       entry: {
@@ -120,7 +120,7 @@ module.exports = (env) => {
     }),
   ];
 
-  const config = (env === 'production') ?
+  const config = (argv.mode === 'production') ?
     productionConfig : developmentConfig;
 
   return merge([commonConfig, config].concat(pages));
