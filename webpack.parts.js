@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BabiliPlugin = require('babili-webpack-plugin');
@@ -62,9 +62,9 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
 });
 
 // separating CSS from JS for faster loading
-exports.extractCSS = ({ include, exclude, use }) => {
+exports.extractCSS = ({ include, exclude, use = [] }) => {
   // Output extracted CSS to a file
-  const plugin = new ExtractTextPlugin({
+  const plugin = new MiniCssExtractPlugin({
     filename: '[name].[contenthash:8].css',
   });
 
@@ -76,10 +76,9 @@ exports.extractCSS = ({ include, exclude, use }) => {
           include,
           exclude,
 
-          use: plugin.extract({
-            use,
-            fallback: 'style-loader',
-          }),
+          use: [
+            MiniCssExtractPlugin.loader,
+          ].concat(use),
         },
       ],
     },
@@ -91,9 +90,7 @@ exports.extractCSS = ({ include, exclude, use }) => {
 exports.autoprefix = () => ({
   loader: 'postcss-loader',
   options: {
-    plugins: () => ([
-      require('autoprefixer')(),
-    ]),
+    plugins: () => [require('autoprefixer')()],
   },
 });
 
@@ -167,10 +164,12 @@ exports.generateSourceMaps = ({ type }) => ({
 });
 
 // allow for more bundle splitting options
-exports.extractBundles = (bundles) => ({
-  plugins: bundles.map((bundle) => (
-    new webpack.optimize.CommonsChunkPlugin(bundle)
-  )),
+exports.extractBundles = () => ({
+  optimization: {
+    splitChunks: {
+      chunks: 'initial',
+    },
+  },
 });
 
 // clean webpack build directory
