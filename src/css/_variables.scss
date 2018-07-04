@@ -15,8 +15,10 @@ $pieRowWidth: 500px;
 $pieSize: 90px;
 $pieOverlaySize: $pieSize - 12px;
 $pieProgColorWeb: rgb(148, 61, 219);
+$pieProgColorWebFade: rgb(104,43,153);
 $pieProgColorGen: rgb(0,108,183);
-$pieColorSpeed: 0.5s;
+$pieProgColorGenFade: rgb(0,76,128);
+$pieColorSpeed: 0.5s ease;
 
 // contact
 $contactBarWidth: 350px;

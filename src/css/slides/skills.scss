@@ -17,20 +17,28 @@
         height: $pieSize * 2 + 20px;
       }
 
-      .web .pie .pieLeft {
-        background-color: $pieProgColorWeb;
+      .web .pie {
+        .pieLeft, .pieRight {
+          background-color: $pieProgColorWeb;
+        }
+
+        &:hover {
+          .pieLeft, .pieRight {
+            background-color: $pieProgColorWebFade;
+          }
+        }
       }
 
-      .web .pie .pieRight {
-        background-color: $pieProgColorWeb;
-      }
+      .general .pie {
+        .pieLeft, .pieRight {
+          background-color: $pieProgColorGen;
+        }
 
-      .general .pie .pieLeft {
-        background-color: $pieProgColorGen;
-      }
-
-      .general .pie .pieRight {
-        background-color: $pieProgColorGen;
+        &:hover {
+          .pieLeft, .pieRight {
+            background-color: $pieProgColorGenFade;
+          }
+        }
       }
 
       .pieRow {
@@ -55,14 +63,6 @@
 
       cursor: pointer;
 
-      &:hover {
-
-        .pieLeft, .pieRight {
-          opacity: .7;
-          transition: opacity $pieColorSpeed;
-        }
-      }
-
       .pieLeft {
         width: $pieSize/2;
         height: $pieSize;
@@ -74,7 +74,7 @@
         // here is where you do custom tuning to the skill amount
         // transform: rotate(-10deg) translate(-$pieSize/4);
 
-        transition: opacity $pieColorSpeed;
+        transition: background-color $pieColorSpeed;
       }
 
       .pieRight {
@@ -86,7 +86,7 @@
 
         transform: translate($pieSize/4);
 
-        transition: opacity $pieColorSpeed;
+        transition: background-color $pieColorSpeed;
       }
 
       .pieOverlay {
