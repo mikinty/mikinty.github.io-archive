@@ -58,7 +58,7 @@ const productionConfig = merge([
         },
       ]),
     ],
-    recordsPath: path.join(__dirname, 'records.json')
+    recordsPath: path.join(__dirname, 'records.json'),
   },
   // for bundle splitting, automatically searches through node_modules
   parts.extractBundles(),
