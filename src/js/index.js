@@ -11,12 +11,14 @@ import Icons from 'uikit/dist/js/uikit-icons';
 import Blazy from 'blazy';
 
 let blazy = new Blazy({
-  // src: 'src',
+  // we need this to load the images that are not shown in the slideshow
   loadInvisible: true,
-  success: (ele, msg) => {
-    console.log(ele, msg);
+  /* Debugging purposes only
+  success: (ele) => {
+    console.log('Success', ele);
   },
   error: (ele, msg) => {
     console.log(ele, msg);
   }
+  */
 });
