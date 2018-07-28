@@ -72,10 +72,23 @@
         </div>
         <div class='projectsSection'>
           <div class='projectContainer'>
-            <div class='projectPanel left'>
-              Omega3
-            </div>
-            <div class='projectPanel projectImage' id='omega3pic'></div>
+              <div class="uk-position-relative uk-visible-toggle uk-light uk-width-expand" uk-slideshow="animation: fade">
+                  <ul class="uk-slideshow-items">
+                      <li>
+                          <img src="<%=require('./images/projects/omega3.jpg')%>" alt="" uk-cover>
+                          <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                              <h3 class="uk-margin-remove">Omega3</h3>
+                              <p class="uk-margin-remove">Neural Networks</p>
+                          </div>
+                      </li>
+                      <li>
+                          <img src="<%=require('./images/projects/100proof.jpg')%>" alt="" uk-cover>
+                      </li>
+                  </ul>
+              
+                  <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                  <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+              </div>
           </div>
           <div class='projectContainer'>
             <div class='projectPanel left'>
