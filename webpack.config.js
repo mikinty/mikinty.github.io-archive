@@ -91,6 +91,11 @@ const productionConfig = merge([
       name: '[name].[hash:8].[ext]',
     },
   }),
+  parts.loadVideos({
+    options: {
+      name: '[name].[hash:8].[ext]',
+    },
+  }),
 ]);
 
 const developmentConfig = merge([
@@ -107,6 +112,11 @@ const developmentConfig = merge([
   }),
   parts.loadCSS(),
   parts.loadImages(),
+  parts.loadVideos({
+    options: {
+      name: '[name].[hash:8].[ext]',
+    },
+  }),
 ]);
 
 module.exports = (env, argv) => {

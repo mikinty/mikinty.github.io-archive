@@ -12,30 +12,16 @@
       height: $projectPanelHeight;
       display: flex;
       margin-bottom: 10px;
-  
-      .projectPanel {
-        width: 50%;
+      
+      div.videoElement {
+        background: black;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
 
-        &.projectImage {
-          border-radius: 5px;
-
-          &#omega3pic {
-            background: $picOmega3;
-            background-size: cover;
-            background-position: center;
-          }
-
-          &#proofpic {
-            background: $pic100proof;
-            background-size: cover;
-            background-position: center;
-          }
-
-          &#bombpic {
-            background: $picBomb;
-            background-size: cover;
-            background-position: center;
-          }
+        #100proofvideo {
+          max-height: 100%;
         }
       }
     }

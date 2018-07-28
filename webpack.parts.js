@@ -119,6 +119,24 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
   },
 });
 
+// load images inline
+exports.loadVideos = ({ include, exclude, options } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.(mov|mp4)$/,
+        include,
+        exclude,
+
+        use: {
+          loader: 'file-loader',
+          options,
+        },
+      },
+    ],
+  },
+});
+
 // load fonts
 exports.loadFonts = ({ include, exclude, options } = {}) => ({
   module: {

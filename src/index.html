@@ -72,35 +72,74 @@
         </div>
         <div class='projectsSection'>
           <div class='projectContainer'>
-              <div class="uk-position-relative uk-visible-toggle uk-light uk-width-expand" uk-slideshow="animation: fade">
-                  <ul class="uk-slideshow-items">
-                      <li>
-                          <img src="<%=require('./images/projects/omega3.jpg')%>" alt="" uk-cover>
-                          <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                              <h3 class="uk-margin-remove">Omega3</h3>
-                              <p class="uk-margin-remove">Neural Networks</p>
-                          </div>
-                      </li>
-                      <li>
-                          <img src="<%=require('./images/projects/100proof.jpg')%>" alt="" uk-cover>
-                      </li>
-                  </ul>
-              
-                  <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
-                  <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+            <div id='omega3Slideshow' class="uk-position-relative uk-visible-toggle uk-light uk-width-expand" uk-slideshow="animation: fade">
+              <ul class="uk-slideshow-items">
+                <li>
+                  <img src="<%=require('./images/projects/omega3.jpg')%>" alt="" uk-cover>
+                  <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove">Omega3</h3>
+                    <p class="uk-margin-remove">Neural Networks</p>
+                  </div>
+                </li>
+                <li>
+                  <img src="<%=require('./images/projects/100proof.jpg')%>" alt="" uk-cover>
+                </li>
+              </ul>
+          
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+            </div>
+          </div>
+          <div class='projectContainer'>
+            <div id='100ProofSlideshow' class="uk-position-relative uk-visible-toggle uk-light uk-width-expand" uk-slideshow="animation: fade">
+              <ul class="uk-slideshow-items">
+                  <li>
+                    <img uk-height-viewport class='.uk-width-auto' src="<%=require('./images/projects/100ProofFront.jpg')%>" alt="" uk-cover>
+                    <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                      <h3 class="uk-margin-remove">100-Proof</h3>
+                      <p class="uk-margin-remove">Fun hardware</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="<%=require('./images/projects/100proof.jpg')%>" alt="" uk-cover>
+                  </li>
+                  <li>
+                    <div class='videoElement'>
+                      <video id='100proofvideo' autoplay loop muted playslinline controls>
+                        <source src="<%=require('./images/projects/100proofdemo.mp4')%>" type="video/mp4">
+                      </video>
+                    </div>
+                  </li>
+              </ul>
+          
+              <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+              <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+            </div>
+          </div>
+          <div class='projectContainer'>
+              <div id='bombDefuserSlideshow' class="uk-position-relative uk-visible-toggle uk-light uk-width-expand" uk-slideshow="animation: fade">
+                <ul class="uk-slideshow-items">
+                  <li>
+                    <img src="<%=require('./images/projects/bombdefuser1.jpg')%>" alt="" uk-cover>
+                    <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                      <h3 class="uk-margin-remove">Bomb Defuser</h3>
+                      <p class="uk-margin-remove">Fun puzzles</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="<%=require('./images/projects/bombdefuser2.jpg')%>" alt="" uk-cover>
+                  </li>
+                  <li>
+                    <img src="<%=require('./images/projects/bombdefuser3.jpg')%>" alt="" uk-cover>
+                  </li>
+                  <li>
+                    <img src="<%=require('./images/projects/bombdefuser4.jpg')%>" alt="" uk-cover>
+                  </li>
+                </ul>
+            
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
               </div>
-          </div>
-          <div class='projectContainer'>
-            <div class='projectPanel left'>
-              100-Proof
-            </div>
-            <div class='projectPanel projectImage' id='proofpic'></div>
-          </div>
-          <div class='projectContainer'>
-            <div class='projectPanel left'>
-              Bomb Defuser
-            </div>
-            <div class='projectPanel projectImage' id='bombpic'></div>
           </div>
         </div>
       </div>
