@@ -12,6 +12,10 @@
       height: $projectPanelHeight;
       display: flex;
       margin-bottom: 10px;
+
+      .uk-slideshow .uk-slideshow-items {
+        border-radius: 5px;
+      }
       
       div.videoElement {
         background: black;
