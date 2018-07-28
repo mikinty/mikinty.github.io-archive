@@ -20,13 +20,19 @@
           border-radius: 5px;
 
           &#omega3pic {
-            background: $picomega3;
+            background: $picOmega3;
             background-size: cover;
             background-position: center;
           }
 
           &#proofpic {
             background: $pic100proof;
+            background-size: cover;
+            background-position: center;
+          }
+
+          &#bombpic {
+            background: $picBomb;
             background-size: cover;
             background-position: center;
           }
