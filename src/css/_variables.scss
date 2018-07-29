@@ -2,6 +2,9 @@
 $backgroundColor: white;
 $blueMain: #148FE8;
 
+// lengths
+$mainWidth: 800px;
+
 // cover
 $dotDiameter: 15px;
 $arrowSize: 20px;
@@ -10,17 +13,22 @@ $arrowThickness: 4px;
 // navbar
 $navBarHeight: 40px;
 
+// profile
+$pfpSize: 350px;
+
 // projects
-$projectPanelHeight: 400px;
+$projectPanelHeight: 500px;
 
 // skills
-$pieRowWidth: 500px;
-$pieSize: 90px;
+$pieRowWidth: 700px;
+$pieSize: 120px;
 $pieOverlaySize: $pieSize - 12px;
 $pieProgColorWeb: rgb(148, 61, 219);
 $pieProgColorWebFade: rgb(104,43,153);
 $pieProgColorGen: rgb(0,108,183);
 $pieProgColorGenFade: rgb(3, 91, 150);
+$pieProgColorHardware: rgb(35,142,86);
+$pieProgColorHardwareFade: rgb(25,99,60);
 $pieColorSpeed: 0.5s ease;
 
 // contact

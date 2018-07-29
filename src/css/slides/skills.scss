@@ -8,13 +8,14 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: $pieSize * 4 + 80px;
+      height: 6 * ($pieSize + 20px);
+      font-size: 22px;
 
-      .web, .general {
+      .web, .general, .hardware {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: $pieSize * 2 + 20px;
+        height: 2 * ($pieSize + 10px);
       }
 
       .web .pie {
@@ -37,6 +38,18 @@
         &:hover {
           .pieLeft, .pieRight {
             background-color: $pieProgColorGenFade;
+          }
+        }
+      }
+
+      .hardware .pie {
+        .pieLeft, .pieRight {
+          background-color: $pieProgColorHardware;
+        }
+
+        &:hover {
+          .pieLeft, .pieRight {
+            background-color: $pieProgColorHardwareFade;
           }
         }
       }
@@ -132,22 +145,25 @@
           background-color: $pieProgColorGen;
         }
       }
+
+      &#hardware {
+        background-color: $pieProgColorHardware;
+
+        .pieOverlay {
+          background-color: $pieProgColorHardware;
+        }
+      }
     }
 
-    // web skills
-    #angular .pieLeft {
+    /*** Web skills ***/
+    #api .pieLeft {
       // here is where you do custom tuning to the skill amount
-      transform: rotate(-50deg) translate(-$pieSize/4);
+      transform: rotate(-40deg) translate(-$pieSize/4);
     }
 
     #chrome .pieLeft {
       // here is where you do custom tuning to the skill amount
       transform: rotate(-40deg) translate(-$pieSize/4);
-    }
-
-    #d3 .pieLeft {
-      // here is where you do custom tuning to the skill amount
-      transform: rotate(-50deg) translate(-$pieSize/4);
     }
 
     #flask .pieLeft {
@@ -162,7 +178,12 @@
 
     #node .pieLeft {
       // here is where you do custom tuning to the skill amount
-      transform: rotate(-25deg) translate(-$pieSize/4);
+      transform: rotate(-10deg) translate(-$pieSize/4);
+    }
+
+    #react .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-30deg) translate(-$pieSize/4);
     }
 
     #sass .pieLeft {
@@ -172,23 +193,23 @@
 
     #webpack .pieLeft {
       // here is where you do custom tuning to the skill amount
-      transform: rotate(-25deg) translate(-$pieSize/4);
+      transform: translate(-$pieSize/4);
     }
 
-    // general skills
-    #assembly .pieLeft {
-      // here is where you do custom tuning to the skill amount
-      transform: rotate(-100deg) translate(-$pieSize/4);
-    }
-
+    /*** General skills ***/
     #c .pieLeft {
       // here is where you do custom tuning to the skill amount
-      transform: rotate(-10deg) translate(-$pieSize/4);
+      transform: translate(-$pieSize/4);
+    }
+
+    #csharp .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-15deg) translate(-$pieSize/4);
     }
     
     #java .pieLeft {
       // here is where you do custom tuning to the skill amount
-      transform: rotate(-10deg) translate(-$pieSize/4);
+      transform: rotate(-15deg) translate(-$pieSize/4);
     }
 
     #latex .pieLeft {
@@ -198,7 +219,7 @@
 
     #matlab .pieLeft {
       // here is where you do custom tuning to the skill amount
-      transform: rotate(-30deg) translate(-$pieSize/4);
+      transform: rotate(-10deg) translate(-$pieSize/4);
     }
 
     #python .pieLeft {
@@ -206,9 +227,45 @@
       transform: translate(-$pieSize/4);
     }
 
-    #sml .pieLeft {
+    #sql .pieLeft {
       // here is where you do custom tuning to the skill amount
-      transform: rotate(-30deg) translate(-$pieSize/4);
+      transform: rotate(-90deg) translate(-$pieSize/4);
+    }
+
+    /*** Hardware skills ***/
+    #arduino .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-5deg) translate(-$pieSize/4);
+    }
+
+    #assembly .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-60deg) translate(-$pieSize/4);
+    }
+
+    #embedded .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-10deg) translate(-$pieSize/4);
+    }
+
+    #fpga .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-70deg) translate(-$pieSize/4);
+    }
+
+    #rpi .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-10deg) translate(-$pieSize/4);
+    }
+
+    #soldering .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-10deg) translate(-$pieSize/4);
+    }
+
+    #vr .pieLeft {
+      // here is where you do custom tuning to the skill amount
+      transform: rotate(-120deg) translate(-$pieSize/4);
     }
   }
 }

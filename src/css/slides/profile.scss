@@ -1,29 +1,33 @@
 .slide.profile {
   .content {
+    width: $mainWidth + 20px;
+
     .bottom {
       display: flex;
       flex-direction: row;
+      width: $mainWidth + 20px;
+      justify-content: space-between;
+      align-items: center;
 
       .text {
-        width: 310px;
+        width: $mainWidth/2 - 10px;
         font-size: 20px;
-        margin: auto 40px auto 0;
+        // margin: auto 40px auto 0;
       }
   
       .border {
         background: radial-gradient(circle, white, $backgroundColor 50%);
-        height: 300px;
-        width: 300px;
+        height: 100%;
+        width: $pfpSize;
         border-radius: 50%;
         padding: 5px;
-        margin: auto 40px auto 0;
       }
     
       .picture {
-        height: 300px;
-        width: 300px;
+        height: $pfpSize;
+        width: $pfpSize;
         background: url('../images/headshot.jpg') center no-repeat;
-        background-size: 300px;
+        background-size: $pfpSize;
         border-radius: 50%;
       }  
     }

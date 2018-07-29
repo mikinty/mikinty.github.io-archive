@@ -2,19 +2,19 @@
   background: $backgroundColor;
 
   .projectsSection {
-    width: 700px;
+    width: $mainWidth;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .projectContainer {
-      width: 700px;
+      width: $mainWidth;
       height: $projectPanelHeight;
       display: flex;
       margin-bottom: 10px;
 
       .uk-slideshow .uk-slideshow-items {
-        border-radius: 5px;
+        border-radius: 10px;
       }
       
       div.videoElement {
