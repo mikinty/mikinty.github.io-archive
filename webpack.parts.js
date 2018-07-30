@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BabiliPlugin = require('babili-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const cssnano = require('cssnano');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -119,6 +118,24 @@ exports.loadImages = ({ include, exclude, options } = {}) => ({
   },
 });
 
+// load images inline
+exports.loadVideos = ({ include, exclude, options } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.(mov|mp4)$/,
+        include,
+        exclude,
+
+        use: {
+          loader: 'file-loader',
+          options,
+        },
+      },
+    ],
+  },
+});
+
 // load fonts
 exports.loadFonts = ({ include, exclude, options } = {}) => ({
   module: {
@@ -176,13 +193,6 @@ exports.extractBundles = () => ({
 exports.clean = (path) => ({
   plugins: [
     new CleanWebpackPlugin([path]),
-  ],
-});
-
-// minify js build size
-exports.minifyJavaScript = () => ({
-  plugins: [
-    new BabiliPlugin(),
   ],
 });
 

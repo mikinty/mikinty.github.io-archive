@@ -38,6 +38,8 @@ const commonConfig = merge([
 
 const productionConfig = merge([
   {
+    // enables javascript minification
+    mode: 'production',
     // warn user when the build size is too big
     performance: {
       hints: 'warning', // 'error' or false are valid too
@@ -47,7 +49,6 @@ const productionConfig = merge([
     output: {
       chunkFilename: '[name].[chunkhash:8].js',
       filename: '[name].[chunkhash:8].js',
-      // matches GitHub project name
     },
     plugins: [
       new webpack.HashedModuleIdsPlugin(),
@@ -58,16 +59,11 @@ const productionConfig = merge([
         },
       ]),
     ],
-    recordsPath: path.join(__dirname, 'records.json')
+    recordsPath: path.join(__dirname, 'records.json'),
   },
   // for bundle splitting, automatically searches through node_modules
-  parts.extractBundles(),
+  // parts.extractBundles(),
   parts.clean(PATHS.build),
-  parts.minifyJavaScript(),
-  parts.setFreeVariable(
-    'process.env.NODE_ENV',
-    'production'
-  ),
   parts.minifyCSS({
     options: {
       discardComments: {
@@ -80,10 +76,11 @@ const productionConfig = merge([
   parts.extractCSS({
     use: ['css-loader', parts.autoprefix(), 'sass-loader'],
   }),
+  /*** NOTE: does not work with uikit ***/
   // needs to run AFTER extract text plugin
-  parts.purifyCSS({
-    paths: glob.sync(`${PATHS.src}/**/*.@(js|html)`, { nodir: true }),
-  }),
+  // parts.purifyCSS({
+  //   paths: glob.sync(`${PATHS.src}/**/*.@(js|html)`, { nodir: true }),
+  // }),
   // load images
   parts.loadImages({
     options: {
@@ -113,9 +110,9 @@ module.exports = (env, argv) => {
   const pages = [
     parts.page({
       entry: {
-        main: path.join(PATHS.src, 'js'),
+        main: path.join(PATHS.src, 'js', 'index.js'),
       },
-      chunks: ['main', 'manifest', 'vendor'],
+      // chunks: ['main', 'manifest', 'vendor'],
       template: 'src/index.html',
     }),
   ];

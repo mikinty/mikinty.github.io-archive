@@ -1,6 +1,8 @@
+/*** VARS AND FONTS ***/
 @import 'variables';
 @import 'fonts';
 
+/*** CUSTOM STYLES ***/
 @import 'index.scss';
 
 // slides
@@ -11,3 +13,10 @@
 @import 'slides/contact.scss';
 
 @import 'components/navbar.scss';
+
+// UIKit: Import default variables and available mixins.
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+// UIKit: Import uikit
+@import "uikit/src/scss/uikit-theme.scss";

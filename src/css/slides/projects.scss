@@ -2,40 +2,30 @@
   background: $backgroundColor;
 
   .projectsSection {
-    width: 700px;
+    width: $mainWidth;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .projectContainer {
-      width: 100%;
+      width: $mainWidth;
       height: $projectPanelHeight;
       display: flex;
       margin-bottom: 10px;
-  
-      .projectPanel {
-        width: 50%;
 
-        &.projectImage {
-          border-radius: 5px;
+      .uk-slideshow .uk-slideshow-items {
+        border-radius: 10px;
+      }
+      
+      div.videoElement {
+        background: black;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
 
-          &#omega3pic {
-            background: $picOmega3;
-            background-size: cover;
-            background-position: center;
-          }
-
-          &#proofpic {
-            background: $pic100proof;
-            background-size: cover;
-            background-position: center;
-          }
-
-          &#bombpic {
-            background: $picBomb;
-            background-size: cover;
-            background-position: center;
-          }
+        #100proofvideo {
+          max-height: 100%;
         }
       }
     }

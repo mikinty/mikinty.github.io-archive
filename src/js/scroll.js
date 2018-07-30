@@ -17,7 +17,7 @@ doc.bind('mousewheel', (e) => {
     domVars.navbar.addClass('hidden');
   }
 
-  // notify the scroll position 
+  // notify the scroll position
   didScroll = true;
 });
 
@@ -25,6 +25,8 @@ doc.bind('mousewheel', (e) => {
 setInterval(() => {
   if (didScroll) {
     didScroll = false; // user needs to scroll again to trigger more animations
+
+    /* currently not used
     var scroll = doc.scrollTop();
 
     if (scroll <= height) {
@@ -37,5 +39,6 @@ setInterval(() => {
       // phase 3
       console.log(3);
     }
+    */
   }
 }, 50);
