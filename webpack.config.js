@@ -8,7 +8,6 @@ const parts = require('./webpack.parts');
 
 // copy files during build
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // commonly used path variables
 const PATHS = {
@@ -19,9 +18,6 @@ const PATHS = {
 // configuration shared by production and development
 const commonConfig = merge([
   {
-    entry: {
-      main: path.join(PATHS.src, 'js', 'index.js'),
-    },
     output: {
       path: PATHS.build,
       filename: '[name].js',
@@ -29,10 +25,6 @@ const commonConfig = merge([
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
-      }),
-      new HtmlWebpackPlugin({
-        // chunks: ['main', 'vendor'],
-        template: path.join(PATHS.src, 'index.html'),
       }),
     ],
   },
@@ -55,11 +47,11 @@ const productionConfig = merge([
       maxAssetSize: 450000, // in bytes
     },
     output: {
+      chunkFilename: '[name].[chunkhash:8].js',
       filename: '[name].[chunkhash:8].js',
-      // matches GitHub project name
     },
     plugins: [
-      // new webpack.HashedModuleIdsPlugin(),
+      new webpack.HashedModuleIdsPlugin(),
       new CopyWebpackPlugin([
         {
           from: path.join('util', '.nojekyll'),
@@ -72,7 +64,6 @@ const productionConfig = merge([
   // for bundle splitting, automatically searches through node_modules
   // parts.extractBundles(),
   parts.clean(PATHS.build),
-  // parts.minifyJavaScript(),
   parts.minifyCSS({
     options: {
       discardComments: {
@@ -116,20 +107,18 @@ const developmentConfig = merge([
 ]);
 
 module.exports = (env, argv) => {
-  /*
   const pages = [
     parts.page({
       entry: {
         main: path.join(PATHS.src, 'js', 'index.js'),
       },
-      chunks: ['main', 'manifest', 'vendor'],
+      // chunks: ['main', 'manifest', 'vendor'],
       template: 'src/index.html',
     }),
   ];
-  */
 
   const config = (argv.mode === 'production') ?
     productionConfig : developmentConfig;
 
-  return merge([commonConfig, config]);
+  return merge([commonConfig, config].concat(pages));
 };
