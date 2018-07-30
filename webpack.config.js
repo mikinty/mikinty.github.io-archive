@@ -8,6 +8,7 @@ const parts = require('./webpack.parts');
 
 // copy files during build
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // commonly used path variables
 const PATHS = {
@@ -18,6 +19,9 @@ const PATHS = {
 // configuration shared by production and development
 const commonConfig = merge([
   {
+    entry: {
+      main: path.join(PATHS.src, 'js', 'index.js'),
+    },
     output: {
       path: PATHS.build,
       filename: '[name].js',
@@ -25,6 +29,10 @@ const commonConfig = merge([
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',
+      }),
+      new HtmlWebpackPlugin({
+        // chunks: ['main', 'vendor'],
+        template: path.join(PATHS.src, 'index.html'),
       }),
     ],
   },
@@ -38,6 +46,8 @@ const commonConfig = merge([
 
 const productionConfig = merge([
   {
+    // enables javascript minification
+    mode: 'production',
     // warn user when the build size is too big
     performance: {
       hints: 'warning', // 'error' or false are valid too
@@ -45,12 +55,11 @@ const productionConfig = merge([
       maxAssetSize: 450000, // in bytes
     },
     output: {
-      chunkFilename: '[name].[chunkhash:8].js',
       filename: '[name].[chunkhash:8].js',
       // matches GitHub project name
     },
     plugins: [
-      new webpack.HashedModuleIdsPlugin(),
+      // new webpack.HashedModuleIdsPlugin(),
       new CopyWebpackPlugin([
         {
           from: path.join('util', '.nojekyll'),
@@ -61,13 +70,9 @@ const productionConfig = merge([
     recordsPath: path.join(__dirname, 'records.json'),
   },
   // for bundle splitting, automatically searches through node_modules
-  parts.extractBundles(),
+  // parts.extractBundles(),
   parts.clean(PATHS.build),
-  parts.minifyJavaScript(),
-  parts.setFreeVariable(
-    'process.env.NODE_ENV',
-    'production'
-  ),
+  // parts.minifyJavaScript(),
   parts.minifyCSS({
     options: {
       discardComments: {
@@ -80,19 +85,15 @@ const productionConfig = merge([
   parts.extractCSS({
     use: ['css-loader', parts.autoprefix(), 'sass-loader'],
   }),
+  /*** NOTE: does not work with uikit ***/
   // needs to run AFTER extract text plugin
-  parts.purifyCSS({
-    paths: glob.sync(`${PATHS.src}/**/*.@(js|html)`, { nodir: true }),
-  }),
+  // parts.purifyCSS({
+  //   paths: glob.sync(`${PATHS.src}/**/*.@(js|html)`, { nodir: true }),
+  // }),
   // load images
   parts.loadImages({
     options: {
       limit: 15000, // uses file-loader if over
-      name: '[name].[hash:8].[ext]',
-    },
-  }),
-  parts.loadVideos({
-    options: {
       name: '[name].[hash:8].[ext]',
     },
   }),
@@ -112,26 +113,23 @@ const developmentConfig = merge([
   }),
   parts.loadCSS(),
   parts.loadImages(),
-  parts.loadVideos({
-    options: {
-      name: '[name].[hash:8].[ext]',
-    },
-  }),
 ]);
 
 module.exports = (env, argv) => {
+  /*
   const pages = [
     parts.page({
       entry: {
-        main: path.join(PATHS.src, 'js'),
+        main: path.join(PATHS.src, 'js', 'index.js'),
       },
       chunks: ['main', 'manifest', 'vendor'],
       template: 'src/index.html',
     }),
   ];
+  */
 
   const config = (argv.mode === 'production') ?
     productionConfig : developmentConfig;
 
-  return merge([commonConfig, config].concat(pages));
+  return merge([commonConfig, config]);
 };
